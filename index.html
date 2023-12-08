@@ -19,7 +19,7 @@
     <!-- Favicon Icon -->
     <link
       rel="shortcut icon"
-      href="assets/images/logos/favicon.png"
+      href="assets/images/logos/Ibits-logo-gradient.svg"
       type="image/x-icon"
     />
     <!-- Google Fonts -->
@@ -203,32 +203,31 @@
           <!--Appointment Form-->
           <div class="appointment-form">
             <form
-              method="post"
-              action="https://agincy.netlify.app/contact.html"
+             id="sendForm"
             >
-              <div class="form-group">
+              <div class="form-group" id="nameGroup" >
                 <input
                   type="text"
-                  name="text"
-                  value=""
+                  name="name"
                   placeholder="Name"
+                  id="name"
                   required
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group" id="emailGround">
                 <input
                   type="email"
                   name="email"
-                  value=""
+                  id="email"
                   placeholder="Email Address"
                   required
                 />
               </div>
-              <div class="form-group">
-                <textarea placeholder="Message" rows="5"></textarea>
+              <div class="form-group" id="contentGroup">
+                <textarea placeholder="Message" rows="5" id="content" name="content"></textarea>
               </div>
               <div class="form-group">
-                <button type="submit" class="theme-btn style-two">
+                <button type="button" onclick="sendEmail()" class="theme-btn style-two">
                   Submit now
                 </button>
               </div>
@@ -236,12 +235,12 @@
           </div>
 
           <!--Social Icons-->
-          <div class="social-style-one">
+          <!-- <div class="social-style-one">
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-pinterest-p"></i></a>
-          </div>
+          </div> -->
         </div>
       </section>
       <!--End Hidden Sidebar -->
@@ -253,8 +252,12 @@
             <div class="col-lg-6 order-lg-2">
               <div class="hero-content-part rmb-55">
                 <h1 class="wow fadeInUp delay-0-2s gradient-text">Website is <br>UNDER CONSTRUCTION</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptate placeat amet itaque reiciendis, perspiciatis mollitia. Dolore facere rem dolorum!</p>
-                <button class="contact-button">Contact Us</button>
+                <div class="hero-subcontent">
+                  <p class="hero-subcontent-text">For any inquiries please email us at:</p>
+                  <a href="mailto:talktous@ibits.digital" class="contact-button">
+                    talktous@ibits.digital
+                </a>
+                </div>
               </div>
             </div>
             <div class="col-lg-6">
@@ -1371,5 +1374,23 @@
     <script src="assets/js/wow.min.js"></script>
     <!-- Custom script -->
     <script src="assets/js/script.js"></script>
+    <script>
+      function sendEmail() {
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const contentInput = document.getElementById('content');
+
+    if (nameInput && emailInput && contentInput) {
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const content = contentInput.value;
+
+        console.log(name, email, content);
+    } else {
+        console.error('One or more elements not found.');
+    }
+}
+
+    </script>
   </body>
 </html>
